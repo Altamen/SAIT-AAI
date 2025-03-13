@@ -96,7 +96,7 @@ class SpeakerSpecificDataset(Dataset):
         self.EMA_stats_list = EMA_stats_list
 
         if self.additional_input:
-            additional_input_list = self.SpeakerData_Manager.load_data_list_from_dir_under_prep_data(
+            additional_input_list = self.SpeakerData_Manager.load_EMA_sensors_from_dir_under_prep_data(
                 dir_name="df_preped_EMA_"+SF_name,
                 sensors_list=self.input_EMA_channel_list,
                 TVs_list=self.output_TVs_list,
