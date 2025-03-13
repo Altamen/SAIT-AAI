@@ -1,0 +1,58 @@
+{
+    "Dataset_Name_List": ["BY2023", "MOCHA_TIMIT", "HPRC"],
+    "Dataset_Info_List": [
+        {
+            "Dataset_Name": "BY2023",
+            "Speaker_List": [
+                "F001", "F002", "F003", "F004", "F005",
+                "M001", "M002", "M003", "M004", "M005",
+                "L_F001", "L_F002", "L_F003",
+                "L_M001", "L_M002", "L_M003",
+                "A_F001", "A_M001"
+            ],
+            "raw_EMA_sr": 250,
+            "wav_sr": 16000,
+            "with_nose": 1,
+            "with_annotation": 1,
+            
+            "raw_EMA_dir_path": ["speaker_name", "raw_data", "pos"],
+            "wav_dir_path": ["speaker_name", "raw_data", "wav"],
+            "Annotation_dir_path": ["TextGrids", "speaker_name"],
+            "silence_token": ""
+        },
+
+        {
+            "Dataset_Name": "MOCHA_TIMIT",
+            "Speaker_List": [
+                "fsew0", "ffes0", "falh0", "faet0",
+                "msak0", "mjjn0", "maps0"
+            ],
+            "raw_EMA_sr": 500,
+            "wav_sr": 16000,
+            "with_nose": 0,
+            "with_annotation": 1,
+            
+            "raw_EMA_dir_path": ["speaker_name", "raw_data"],
+            "wav_dir_path": ["speaker_name", "raw_data", "wav"],
+            "Annotation_dir_path": ["speaker_name", "raw_data", "TextGrids"],
+            "silence_token": "sil"
+        },
+
+        {
+            "Dataset_Name": "HPRC",
+            "Speaker_List": [
+                "F01", "F02", "F03", "F04",
+                "M01", "M02", "M03", "M04"
+            ],
+            "raw_EMA_sr": 100,
+            "wav_sr": 44100,
+            "with_nose": 0,
+            "with_annotation": 1,
+            
+            "raw_EMA_dir_path": ["speaker_name", "raw_data", "data"],
+            "wav_dir_path": ["speaker_name", "raw_data", "wav"],
+            "Annotation_dir_path": ["speaker_name", "raw_data", "New_TextGrid"],
+            "silence_token": "sp"
+        }
+    ]
+}
