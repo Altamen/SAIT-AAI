@@ -3,6 +3,7 @@ import json
 import shutil
 import random
 
+import tqdm
 import librosa
 import soundfile as sf
 
@@ -329,7 +330,9 @@ class SpeakerData_Manager():
         dir_path = os.path.join(self.prep_data_dir_path, dir_name)
         if not os.path.exists(dir_path):
             raise ValueError(f"{dir_path} does not exist")
-        for index, data in data_list:
+        
+        print(f"saving data to {dir_name}")
+        for index, data in tqdm(data_list):
             data_path = os.path.join(dir_path, index + ".npy")
             np.save(data_path, data)
             print(f"{index}.npy saved")
@@ -360,10 +363,10 @@ class SpeakerData_Manager():
         dir_path = os.path.join(self.prep_data_dir_path, dir_name)
         if not os.path.exists(dir_path):
             raise ValueError(f"{dir_path} not existed")
-        for index in index_list:
+        print(f"loading data from {dir_name}")
+        for index in tqdm(index_list):
             current_file_path = os.path.join(dir_path, index + ".npy")
             current_data = np.load(current_file_path)
-            print(f"{index} from {dir_name} loaded")
             data_list.append((index, current_data))
         return data_list
     
@@ -390,10 +393,10 @@ class SpeakerData_Manager():
         if not os.path.exists(dir_path):
             raise ValueError(f"{dir_path} not existed")
         
-        for index in index_list:
+        print(f"loading EMA from {dir_name}")
+        for index in tqdm(index_list):
             current_file_path = os.path.join(dir_path, index + ".npy")
             current_data = np.load(current_file_path)[:, required_indices]
-            print(f"{index} from {dir_name} loaded")
             data_list.append((index, current_data))
         return data_list
     
@@ -434,9 +437,9 @@ class SpeakerData_Manager():
         stats_list = []
         new_PS_list = []
 
-        for i in range(len(PS_data)):
+        print("performing last process")
+        for i in tqdm(range(len(PS_data))):
             index = PS_indices[i]
-            print(f"最终预处理 {index} 中")
 
             # 去除静音段
             ps = PS_data[i]
