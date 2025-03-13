@@ -368,12 +368,19 @@ class SpeakerData_Manager():
         return data_list
     
     def load_EMA_sensors_from_dir_under_prep_data(
-            self, dir_name, sensors_list, TVs_list=[], index_list=None
+            self, dir_name, sensors_list=[], TVs_list=[], index_list=None
         ):
-        required_indices = self._get_std_EMA_sensors_indices(*sensors_list)
+        if (sensors_list == []) and (TVs_list == []):
+            raise ValueError("sensors_list and TVs_list cannot be both empty.")
+
+        if sensors_list:
+            required_indices = self._get_std_EMA_sensors_indices(*sensors_list)
+        else:
+            required_indices = []
         if TVs_list:
             TVs_indices = self._get_std_EMA_channels_TVs_indices(TVs_list)
             required_indices += TVs_indices
+        
         if not index_list:
             index_list = self.all_index_list
 
