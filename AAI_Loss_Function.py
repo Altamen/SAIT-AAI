@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-from ExpAAI_RMSE_and_CC import *
+from AAI_RMSE_and_CC import *
 
 
 class Masked_MSE_Loss(nn.Module):
