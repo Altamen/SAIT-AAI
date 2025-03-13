@@ -1,0 +1,16 @@
+{
+    "epoch_num" : 100,
+    "learning_rate" : 0.0005,
+    "beta1" : 0.9,
+    "beta2" : 0.999,
+    "train_batch_size" : 10,
+    "val_batch_size" : 3,
+    "new_std": 2,
+
+    "SF_name" : "MFCC39",
+    "input_EMA_channel_list" : [],
+    "input_EMA_TV_list" : [],
+    "if_output_with_TV" : true,
+    "input_dim" : 39,
+    "output_dim" : 9
+}
