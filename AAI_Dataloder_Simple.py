@@ -99,7 +99,7 @@ class SpeakerSpecificDataset(Dataset):
             additional_input_list = self.SpeakerData_Manager.load_EMA_sensors_from_dir_under_prep_data(
                 dir_name="df_preped_EMA_"+SF_name,
                 sensors_list=self.input_EMA_channel_list,
-                TVs_list=self.output_TVs_list,
+                TVs_list=self.input_EMA_TV_list,
                 index_list=self.index_list
             )
             additional_input_list, _ = self.SpeakerData_Manager.last_process(
@@ -124,9 +124,9 @@ class SpeakerSpecificDataset(Dataset):
             raise ValueError(f"idx 不一致!")
         
         if self.additional_input:
+            idx_additional, additional_input = self.additional_input_list[index]
             if idx_additional != idx_EMA:
                 raise ValueError(f"idx 不一致!")
-            idx_additional, additional_input = self.additional_input_list[index]
             SF = np.hstack((SF, additional_input))
 
         SF = torch.from_numpy(SF)
