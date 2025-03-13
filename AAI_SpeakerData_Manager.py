@@ -3,7 +3,7 @@ import json
 import shutil
 import random
 
-import tqdm
+from tqdm import tqdm
 import librosa
 import soundfile as sf
 
