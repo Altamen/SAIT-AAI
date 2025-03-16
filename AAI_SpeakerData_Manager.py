@@ -452,9 +452,9 @@ class SpeakerData_Manager():
                 filtered_data, mean, std = normalise_np(
                     filtered_data, new_std=new_std
                 )
+                stats_list.append((index, mean, std))
             
             new_data_list.append((index, filtered_data))
-            stats_list.append((index, mean, std))
             new_PS_list.append((index, filtered_ps))
 
         if more_stats:
